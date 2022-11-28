@@ -1,8 +1,4 @@
 function love.load()
-	x = 100
-	y = 100
-	width = 100
-	height = 100
 end
 
 function love.update()
@@ -11,17 +7,12 @@ end
 
 function love.draw()
 	love.graphics.setColor(1, 1, 1)
+
+	love.graphics.rectangle('fill', mx-50, my-50, 100, 100)
+
 	
-	if mx > x and mx < x + width and my > y and my < y + height then
-		love.graphics.setColor(mx/800, my/600, (mx+my)/(800+600))
+	love.graphics.circle('line', 100, 100, 20)
 
-		if love.mouse.isDown(1) then
-			x = mx - 50
-			y = my - 50
-		end
-	end
-
-	love.graphics.rectangle('fill', x, y, width, height)
 
 	love.graphics.setColor(1, 1, 1)
 	love.graphics.print('fps: ' .. love.timer.getFPS(), 10, 10)

@@ -24,16 +24,29 @@ void graphics_setColor(lua_State *L){
 }
 
 void graphics_rectangle(lua_State *L){
-	const char *rectangle_type = lua_tostring(L, 1);
+	const char *draw_mode = lua_tostring(L, 1);
 	int x = lua_tonumber(L, 2);
 	int y = lua_tonumber(L, 3);
 	int width = lua_tonumber(L, 4);
 	int height = lua_tonumber(L, 5);
 
-	if(!strcmp(rectangle_type, "line")){
+	if(!strcmp(draw_mode, "line")){
 		DrawRectangleLines(x, y, width, height, color);
-	} else if(!strcmp(rectangle_type, "fill")){
+	} else if(!strcmp(draw_mode, "fill")){
 		DrawRectangle(x, y, width, height, color);
+	}
+}
+
+void graphics_circle(lua_State *L){
+	const char *draw_mode = lua_tostring(L, 1);
+	int x = lua_tonumber(L, 2);
+	int y = lua_tonumber(L, 3);
+	int r = lua_tonumber(L, 4);
+
+	if(!strcmp(draw_mode, "line")){
+		DrawCircleLines(x, y, r, color);
+	} else if(!strcmp(draw_mode, "fill")){
+		DrawCircle(x, y, r, color);
 	}
 }
 
@@ -53,5 +66,6 @@ void graphics_init(lua_State *L){
 
 	add_function(L, graphics_setColor, "love.graphics.setColor");
 	add_function(L, graphics_rectangle, "love.graphics.rectangle");
+	add_function(L, graphics_circle, "love.graphics.circle");
 	add_function(L, graphics_print, "love.graphics.print");
 }
