@@ -5,6 +5,7 @@
 #include "lualib.h"
 
 #include "modules/graphics.h"
+#include "modules/mouse.h"
 #include "modules/timer.h"
 
 int main(){
@@ -12,9 +13,10 @@ int main(){
 	luaL_loadfile(L, "main.lua");
 	luaL_openlibs(L);
 
-	luaL_dostring(L, "function none() end\nlove = { graphics = {}, timer={}, load = none, update = none, draw = none  }\nnone = nil");
+	luaL_dostring(L, "function none() end\nlove = { graphics = {}, timer={}, mouse={}, load = none, update = none, draw = none  }\nnone = nil");
 
 	graphics_init(L);
+	mouse_init(L);
 	timer_init(L);
 
 	lua_pcall(L, 0, 0, 0);
