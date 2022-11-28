@@ -11,15 +11,17 @@ int main(){
 	luaL_loadfile(L, "main.lua");
 	luaL_openlibs(L);
 
-	luaL_dostring(L, "function draw() end\nlove = { graphics = {}, draw = draw  }\ndraw = nil");
+	luaL_dostring(L, "function none() end\nlove = { graphics = {}, load = none, update = none, draw = none  }\nnone = nil");
 
 	graphics_init(L);
 
 	lua_pcall(L, 0, 0, 0);
+	luaL_dostring(L, "love.load()");
 	
 	InitWindow(800, 600, "l2d");
 
 	while(!WindowShouldClose()){
+		luaL_dostring(L, "love.update()");
 		BeginDrawing();
 			ClearBackground((Color){0, 0, 0});
 			luaL_dostring(L, "love.draw()");

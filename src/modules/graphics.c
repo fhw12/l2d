@@ -29,7 +29,7 @@ int graphics_setColor(lua_State *L){
 }
 
 int graphics_rectangle(lua_State *L){
-	char *rectangle_type = lua_tostring(L, 1);
+	const char *rectangle_type = lua_tostring(L, 1);
 	double x = lua_tonumber(L, 2);
 	double y = lua_tonumber(L, 3);
 	double width = lua_tonumber(L, 4);
