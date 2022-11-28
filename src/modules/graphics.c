@@ -13,7 +13,7 @@ void graphics_setColor(lua_State *L){
 	double r = lua_tonumber(L, 1);
 	double g = lua_tonumber(L, 2);
 	double b = lua_tonumber(L, 3);
-
+	
 	if(r > 1){r = 1;}
 	if(g > 1){g = 1;}
 	if(b > 1){b = 1;}
