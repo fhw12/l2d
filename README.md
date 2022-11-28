@@ -6,6 +6,7 @@ l2d - Позволяет запускать некоторый код напис
 ```
 love.graphics.setColor
 love.graphics.rectangle
+love.graphics.circle
 love.graphics.print
 ```
 
