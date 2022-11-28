@@ -12,9 +12,8 @@ int main(){
 	luaL_openlibs(L);
 
 	luaL_dostring(L, "function draw() end\nlove = { graphics = {}, draw = draw  }\ndraw = nil");
-	lua_pushcfunction(L, graphics_rectangle);
-	lua_setglobal(L, "graphics_rectangle");
-	luaL_dostring(L, "love.graphics.rectangle = graphics_rectangle");
+
+	graphics_init(L);
 
 	lua_pcall(L, 0, 0, 0);
 	
