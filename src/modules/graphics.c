@@ -1,5 +1,4 @@
 #include <string.h>
-#include <stdlib.h>
 
 #include "raylib.h"
 #include "lua.h"
@@ -8,12 +7,7 @@
 
 struct Color color;
 
-void add_function(lua_State *L, void *func_c, char *func_lua){
-	lua_pushcfunction(L, func_c);
-	lua_setglobal(L, "lua_function");
-	luaL_dostring(L, TextFormat("%s = lua_function", func_lua));
-	luaL_dostring(L, "lua_function = nil");
-}
+void add_function(lua_State *L, void *func_c, char *func_lua);
 
 void graphics_setColor(lua_State *L){
 	double r = lua_tonumber(L, 1);
@@ -51,7 +45,7 @@ void graphics_print(lua_State *L){
 	DrawText(text, x, y, 10, color);
 }
 
-int graphics_init(lua_State *L){
+void graphics_init(lua_State *L){
 	color.r = 255;
 	color.g = 255;
 	color.b = 255;

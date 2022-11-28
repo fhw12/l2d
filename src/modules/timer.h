@@ -5,4 +5,4 @@
 #include "lauxlib.h"
 #include "lualib.h"
 
-void graphics_init(lua_State *L);
+void timer_init(lua_State *L);

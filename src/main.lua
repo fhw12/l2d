@@ -8,10 +8,10 @@ function love.draw()
 	for x = 0, 150 do
 		for y = 0, 150 do
 			love.graphics.setColor(1/x*75, 1/y*75, 1/x*75)
-			love.graphics.rectangle("fill", x*2, y*2, 1, 1)
+			love.graphics.rectangle("fill", 50+x*2, 50+y*2, 1, 1)
 		end
 	end
 
 	love.graphics.setColor(1,1,1)
-	love.graphics.print('Text', 400, 400)
+	love.graphics.print('fps: ' .. love.timer.getFPS(), 10, 10)
 end

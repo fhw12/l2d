@@ -1,1 +1,1 @@
-gcc main.c modules/graphics.c -o main -I/usr/include/lua5.3 -llua5.3 -lraylib -lGL -lm -lpthread -ldl -lrt -lX11 && ./main && rm main
+gcc main.c modules/graphics.c modules/timer.c -o main -I/usr/include/lua5.3 -llua5.3 -lraylib -lGL -lm -lpthread -ldl -lrt -lX11 && ./main && rm main
