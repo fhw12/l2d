@@ -43,6 +43,14 @@ void graphics_rectangle(lua_State *L){
 	}
 }
 
+void graphics_print(lua_State *L){
+	const char *text = lua_tostring(L, 1);
+	int x = lua_tonumber(L, 2);
+	int y = lua_tonumber(L, 3);
+
+	DrawText(text, x, y, 10, color);
+}
+
 int graphics_init(lua_State *L){
 	color.r = 255;
 	color.g = 255;
@@ -51,4 +59,5 @@ int graphics_init(lua_State *L){
 
 	add_function(L, graphics_setColor, "love.graphics.setColor");
 	add_function(L, graphics_rectangle, "love.graphics.rectangle");
+	add_function(L, graphics_print, "love.graphics.print");
 }
