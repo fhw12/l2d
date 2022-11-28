@@ -11,10 +11,11 @@ love.graphics.print
 
 ### mouse
 ```
-love.graphics.getPosition
+love.mouse.getPosition
+love.mouse.isDown
 ```
 
 ### timer
 ```
-love.graphics.getFPS
+love.timer.getFPS
 ```
